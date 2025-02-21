@@ -1,0 +1,8 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+    printf("Real PID: %d\n", getpid());
+    printf("Effective PID: %d\n", getpid());
+    return 0;
+}
