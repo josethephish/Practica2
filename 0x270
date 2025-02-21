@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int global_var = 10;  // Segmento de datos
+static int static_var = 20; // Segmento de datos
+
+void function() {
+    int local_var = 30; // Segmento de pila
+    printf("Local Variable: %d (Stack)\n", local_var);
+}
+
+int main() {
+    int *heap_var = (int*) malloc(sizeof(int)); // Segmento de heap
+    *heap_var = 40;
+
+    printf("Global Variable: %d (Data Segment)\n", global_var);
+    printf("Static Variable: %d (Data Segment)\n", static_var);
+    printf("Heap Variable: %d (Heap)\n", *heap_var);
+
+    function();
+
+    free(heap_var);
+    return 0;
+}
